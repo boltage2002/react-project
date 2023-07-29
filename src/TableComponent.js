@@ -1,7 +1,8 @@
 import React from 'react';
 import './TableStyles.css';
 
-const TableComponent = () => {
+const TableComponent = ({ data }) => {
+  console.log(data);
   const columns = [
     { Header: 'ID', accessor: 'id' },
     { Header: 'Name', accessor: 'name' },
@@ -9,12 +10,6 @@ const TableComponent = () => {
     { Header: 'Email', accessor: 'email' },
   ];
 
-  const data = [
-    { id: 1, name: 'mohit chopra', age: 20, email: 'mohit123@gmail.com' },
-    { id: 2, name: 'himanshu chopra', age: 27, email: 'himi123@gmail.com' },
-    { id: 3, name: 'sonali chopra', age: 28, email: 'sonali123@gmail.com' },
-    
-  ];
 
   return (
     <div className="table-container">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ModalContent = ({ handleSubmit, handleCloseModal }) => {
+const ModalContent = ({ handleSubmit }) => {
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
   const [email, setEmail] = useState('');
@@ -37,7 +37,7 @@ const ModalContent = ({ handleSubmit, handleCloseModal }) => {
               </div>
               <div className="modal-footer">
                 <button type="submit" className="btn btn-primary">Submit</button>
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={handleCloseModal}>Close</button>
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               </div>
             </form>
           </div>
