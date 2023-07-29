@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import TableComponent from './TableComponent';
+//import './App.css'; 
+import ModalContent from './components/ModalContent';
 
-function App() {
+
+const App = () => {
+  const sheetStyle = {
+    backgroundColor: 'transparent',
+    width: '30cm',
+    height: '18.3cm',
+    padding: '2cm',
+    margin: '0 auto',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    boxSizing: 'border-box',
+  };
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={sheetStyle}>
+      <div className="container">
+        <h1>MOHIT CHOPRA</h1>
+        <TableComponent />
+        <ModalContent/>
+      </div>
     </div>
   );
-}
+};
 
 export default App;

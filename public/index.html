@@ -1,43 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html>
+<head>
+  <title>Mohit Chopra</title>
+  <!-- Add the Bootstrap CSS file -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background: white;
+    }
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    body.color-mode-active {
+      background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+      background-size: 300% 300%;
+      animation: color 12s ease-in-out infinite;
+    }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    #root {
+      color: black;
+    }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    @keyframes color {
+      0% {
+        background-position: 0 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0 50%;
+      }
+    }
+
+    .app-container {
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Mohit</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Options</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              ⬇️
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">NEED HELP</a></li>
+              <li class="nav-item dropdown">
+                <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Theme
+                </a>
+                <ul class="dropdown-menu">
+                  
+                  <li><a class="dropdown-item" href="#" onclick="toggleColorMode(false)">Light Mode</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="toggleColorMode(true)">Color Mode</a></li>
+                </ul>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        
+        <!-- Add the ADD button with the modal content -->
+        <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#modal-content">➕</button>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!-- App content -->
+  <div id="root" class="app-container">
+    <h1>My App</h1>
+    <!-- Add your app's content here -->
+  </div>
+
+  <!-- Modal Content -->
+  
+
+  <!-- Add the necessary Bootstrap JavaScript files -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Function to handle the modal form submission
+    function handleSubmit(event) {
+      event.preventDefault();
+      const inputValue = document.getElementById('info-input').value;
+      console.log('Submitted data:', inputValue);
+      handleCloseButtonClick(); // Close the modal content
+    }
+
+    // Function to toggle the color mode
+    function toggleColorMode(activate) {
+      const bodyElement = document.querySelector('body');
+      const rootElement = document.getElementById('root');
+      if (activate) {
+        bodyElement.classList.add('color-mode-active');
+        rootElement.style.color = 'white';
+      } else {
+        bodyElement.classList.remove('color-mode-active');
+        rootElement.style.color = 'black';
+      }
+    }
+
+    // Initialize the Bootstrap dropdown functionality
+    const dropdownElements = document.querySelectorAll('.dropdown-toggle');
+    dropdownElements.forEach(function (dropdownElement) {
+      dropdownElement.addEventListener('click', function () {
+        this.classList.toggle('show');
+      });
+    });
+  </script>
+</body>
 </html>
